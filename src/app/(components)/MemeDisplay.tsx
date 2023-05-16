@@ -7,7 +7,8 @@ const anton = Anton({ weight: "400", subsets: ["latin"] });
 
 const MemeDisplay = ({
 	background: { src, width, height, alt },
-	textareas
+	textareas,
+	overrideValues
 }: {
 	background: {
 		src: string;
@@ -25,6 +26,7 @@ const MemeDisplay = ({
 		fontSize: number;
 		text: string;
 	}[];
+	overrideValues: Record<string, string>;
 }) => {
 	const [memeRef, size] = useElementSize();
 	const ratio = size.width / width;
@@ -50,7 +52,7 @@ const MemeDisplay = ({
 								lineHeight: "1.1"
 							}}
 						>
-							{text}
+							{overrideValues?.[id] ?? text}
 						</div>
 					</div>
 				)

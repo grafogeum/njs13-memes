@@ -21,3 +21,9 @@ export interface MemeTemplate {
 	background: BackgroundImage;
 	textareas: TextArea[];
 }
+
+export interface Meme {
+	id: string;
+	template: string;
+	values: Record<string, string>;
+}

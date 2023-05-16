@@ -1,29 +1,27 @@
 import MemeDisplay from "@/app/(components)/MemeDisplay";
 
-export default function Home() {
+import { MemeTemplate, Meme } from "@/app/(data)/types";
+
+export default async function Home() {
+	const memeTemplatesReq = await fetch(
+		"http://localhost:3000/api/memeTemplates"
+	);
+	const memeTemplates = (await memeTemplatesReq.json()) as MemeTemplate[];
+
+	const memesReq = await fetch("http://localhost:3000/api/memes");
+	const memes = (await memesReq.json()) as Meme[];
+
 	return (
 		<main className="max-w-[1200] flex justify-center">
-			<div className="max-w-[600px]">
-				<MemeDisplay
-					background={{
-						src: "/disaster-girl.jpg",
-						width: 1200,
-						height: 900,
-						alt: "Disaster girl"
-					}}
-					textareas={[
-						{
-							id: "saying",
-							top: 750,
-							left: 100,
-							width: 1000,
-							height: 100,
-							fontSize: 90,
-							color: "white",
-							text: "Hire me or else..."
-						}
-					]}
-				/>
+			<h2 className="text-2xl font-bold mt-5 text-white">Memes</h2>
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+				{memes.map(({ id, template, values }) => (
+					<MemeDisplay
+						key={id}
+						{...memeTemplates.find(({ id }) => id === template)!}
+						overrideValues={memes[0].values}
+					/>
+				))}
 			</div>
 		</main>
 	);
