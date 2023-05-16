@@ -12,12 +12,12 @@ const templates: MemeTemplate[] = [
 		textareas: [
 			{
 				id: "tagline",
-				top: 750,
-				left: 100,
-				width: 900,
-				height: 130,
+				top: 800,
+				left: 50,
+				width: 700,
+				height: 150,
 				text: "Your code without me on board",
-				fontSize: 100,
+				fontSize: 55,
 				color: "white"
 			}
 		]
