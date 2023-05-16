@@ -38,7 +38,27 @@ const templates: MemeTemplate[] = [
 				width: 1400,
 				height: 320,
 				text: "When you see my nifty functions ",
-				fontSize: 100,
+				fontSize: 90,
+				color: "black"
+			},
+			{
+				id: "person",
+				top: 0,
+				left: 250,
+				width: 800,
+				height: 320,
+				text: "JavaScript Dev",
+				fontSize: 70,
+				color: "black"
+			},
+			{
+				id: "old",
+				top: 70,
+				left: 1000,
+				width: 600,
+				height: 320,
+				text: "Fixing Bugs 🐞 ",
+				fontSize: 70,
 				color: "black"
 			}
 		]
@@ -54,7 +74,7 @@ const templates: MemeTemplate[] = [
 		textareas: [
 			{
 				id: "top",
-				top: 0,
+				top: 200,
 				left: 600,
 				width: 600,
 				height: 600,
@@ -64,7 +84,7 @@ const templates: MemeTemplate[] = [
 			},
 			{
 				id: "bottom",
-				top: 600,
+				top: 800,
 				left: 600,
 				width: 600,
 				height: 600,

@@ -12,9 +12,9 @@ export default async function Home() {
 	const memes = (await memesReq.json()) as Meme[];
 
 	return (
-		<main className="max-w-[1200] flex justify-center">
-			<h2 className="text-2xl font-bold mt-5 text-white">Memes</h2>
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+		<main className="max-w-[1200] flex justify-center flex-wrap">
+			<h2 className="text-3xl font-bold mt-5 text-white">Memes</h2>
+			<div className="max-w-[300] grid grid-cols-1 md:grid-cols-2 gap-2">
 				{memes.map(({ id, template, values }) => (
 					<MemeDisplay
 						key={id}

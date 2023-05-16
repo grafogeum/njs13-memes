@@ -46,10 +46,13 @@ const MemeDisplay = ({
 						}}
 					>
 						<div
-							className={`${anton.className} text-center text-${color} text-stroke-white`}
+							className={`${anton.className} text-center ${
+								color ?? "white"
+							}-contrast-outline`}
 							style={{
 								fontSize: fontSize * ratio,
-								lineHeight: "1.1"
+								lineHeight: "1.1",
+								color: color ?? "white"
 							}}
 						>
 							{overrideValues?.[id] ?? text}
