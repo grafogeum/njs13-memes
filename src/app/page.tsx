@@ -19,7 +19,7 @@ export default async function Home() {
 					<MemeDisplay
 						key={id}
 						{...memeTemplates.find(({ id }) => id === template)!}
-						overrideValues={memes[0].values}
+						overrideValues={values}
 					/>
 				))}
 			</div>

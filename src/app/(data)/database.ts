@@ -5,9 +5,9 @@ const database: Meme[] = [
 		id: "1",
 		template: "guy-looking",
 		values: {
-			old: "When you're trying to find a bug",
-			person: "JavaScript Dev",
-			new: " When you're trying to fix a bug"
+			old: "Programming skills",
+			person: "🤝 JavaScript Dev ",
+			new: " Salary expectations"
 		}
 	},
 	{
