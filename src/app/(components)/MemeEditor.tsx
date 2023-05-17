@@ -1,6 +1,9 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { MemeTemplate } from "@/app/(data)/types";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
+
 import MemeDisplay from "./MemeDisplay";
 
 const textValues = (template: MemeTemplate) =>
@@ -28,6 +31,9 @@ const MemeEditor = ({ templates }: { templates: MemeTemplate[] }) => {
 
 	const values = watch("values");
 
+	const router = useRouter();
+	const [isPending, startTransition] = useTransition();
+
 	const onSubmit = async (data: {
 		template: string;
 		values: Record<string, string>;
@@ -42,6 +48,7 @@ const MemeEditor = ({ templates }: { templates: MemeTemplate[] }) => {
 				values: data.values
 			})
 		});
+		startTransition(() => router.refresh());
 	};
 
 	return (
@@ -80,6 +87,7 @@ const MemeEditor = ({ templates }: { templates: MemeTemplate[] }) => {
 						<button
 							className="btn btn-primary mt-5 min-w-[200px]"
 							type="submit"
+							disabled={isPending}
 						>
 							Add Meme
 						</button>
